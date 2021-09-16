@@ -188,7 +188,7 @@ button.addEventListener("click", function () {
       var year = next_palindrome_date(date)[1].year;
       var count = next_palindrome_date(date)[0];
       message.innerText =
-        "Sorry you missed the pallindromic birthday " +
+        "Sorry you missed the pallindromic birthday   " +
         day +
         " - " +
         month +
