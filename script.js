@@ -173,6 +173,11 @@ var message = document.querySelector(".message");
 
 button.addEventListener("click", function () {
   var temp_date_value = date_selection.value;
+  if (temp_date_value == "") {
+    message.innerText = "You have not selected your birthday";
+    message.style.color = "red";
+    return;
+  }
   if (temp_date_value !== "") {
     var separation_of_dates = temp_date_value.split("-");
     var date = {
@@ -181,12 +186,14 @@ button.addEventListener("click", function () {
       year: Number(separation_of_dates[0]),
     };
     if (check_palindrom_for_all_dates(date)) {
+      message.style.color = "green";
       message.innerText = "Hurray!! Your Birthday Is palindrome";
     } else {
       var day = next_palindrome_date(date)[1].day;
       var month = next_palindrome_date(date)[1].month;
       var year = next_palindrome_date(date)[1].year;
       var count = next_palindrome_date(date)[0];
+      message.style.color = "red";
       message.innerText =
         "Sorry you missed the pallindromic birthday   " +
         day +
